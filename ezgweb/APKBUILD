@@ -1,0 +1,43 @@
+# Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+# Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+pkgname=ezgweb
+pkgver=0.1.0
+pkgrel=0
+pkgdesc="EasyGuard Admin page"
+url="https://github.com/easyguard/easyguard-web"
+arch="all"
+license="GPL-3.0-only"
+depends="lighttpd lighttpd-mod_auth"
+makedepends="nodejs npm"
+checkdepends=""
+source="https://github.com/easyguard/easyguard-web/archive/refs/heads/main.zip
+	lighttpd.conf
+	lighttpd-htdigest.user" # root:easyguard
+builddir="$srcdir/easyguard-web-main"
+
+prepare() {
+	default_prepare
+
+	npm i
+}
+
+build() {
+	npm run build
+}
+
+check() {
+	:
+}
+
+package() {
+	find "$builddir/build" -type f -exec install -Dm 755 "{}" "$pkgdir/etc/easyguard-web" \;
+	# install -Dm755 "$builddir/build" "$pkgdir/etc/easyguard-web"
+	# install -Dm755 "$srcdir/lighttpd.conf" "$pkgdir/etc/lighttpd/lighttpd.conf"
+	install -Dm755 "$srcdir/lighttpd-htdigest.user" "$pkgdir/etc/lighttpd/lighttpd-htdigest.user"
+}
+
+sha512sums="
+fe42e0679bf3d2050926add3578df59f8215afd3c8ea0c9ec0706ea566f6616c0c3d4e6d08d50c153d138cc48996661db6b05100b1113d9310cf5d0e9e7971bd  main.zip
+c960527207df0404cfbeba55f1c54a6f28248beab144dc87502a38c9b307f7433bb5a7304bb31fd7eb76e15a7291cf0dce7de69d02a768153465945129f3e4db  lighttpd.conf
+38ba6ee02327bb98bf0653d8f929cb568e1d03fea25e2f5e60557b6daa25154bcda635fa83beb8be099858d43c712214e7e65f736a1eecd43b0a98c2d699959d  lighttpd-htdigest.user
+"

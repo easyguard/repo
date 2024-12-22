@@ -1,0 +1,110 @@
+{
+  "zones": [
+    {
+      "name": "wan",
+      "input": {
+				"ports": null,
+        "include": null
+      },
+      "output": {
+        "ports": null,
+        "include": null
+      },
+      "forward": [],
+      "items": {
+        "interfaces": [
+          "wan"
+        ]
+      }
+    },
+    {
+      "name": "lan",
+      "input": {
+        "ports": [
+          {
+            "protocol": "tcp",
+            "type": null,
+            "limit": null,
+            "port": 80,
+            "ip": null
+          },
+          {
+            "protocol": "tcp",
+            "type": null,
+            "limit": null,
+            "port": 443,
+            "ip": null
+          },
+          {
+            "protocol": "tcp",
+            "type": null,
+            "limit": null,
+            "port": 22,
+            "ip": null
+          },
+          {
+            "protocol": "udp",
+            "type": null,
+            "limit": null,
+            "port": 53,
+            "ip": null
+          },
+          {
+            "protocol": "udp",
+            "type": null,
+            "limit": null,
+            "port": 67,
+            "ip": null
+          },
+          {
+            "protocol": "tcp",
+            "type": null,
+            "limit": null,
+            "port": 8080,
+            "ip": null
+          }
+        ],
+        "include": null
+      },
+      "output": {
+        "ports": null,
+        "include": null
+      },
+      "forward": [
+        {
+          "dest": "wan",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "type": null,
+              "limit": null,
+              "port": 80,
+              "ip": null
+            },
+            {
+              "protocol": "tcp",
+              "type": null,
+              "limit": null,
+              "port": 443,
+              "ip": null
+            },
+            {
+              "protocol": "tcp",
+              "type": null,
+              "limit": null,
+              "port": 22,
+              "ip": null
+            }
+          ],
+          "include": []
+        }
+      ],
+      "items": {
+        "interfaces": [
+          "lan"
+        ]
+      }
+    }
+  ],
+  "forwards": []
+}

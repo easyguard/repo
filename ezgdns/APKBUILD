@@ -1,0 +1,34 @@
+# Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+# Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+pkgname=ezgdns
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="EasyGuard Blocky DNS"
+url="https://github.com/0xERR0R/blocky"
+arch="all"
+license="GPL-3.0-only"
+depends="blocky"
+makedepends=""
+checkdepends=""
+source="config.yml"
+builddir="$srcdir/"
+
+prepare() {
+	default_prepare
+}
+
+build() {
+	:
+}
+
+check() {
+	:
+}
+
+package() {
+	install -Dm755 "$srcdir/config.yml" "$pkgdir/etc/blocky/config.yml"
+}
+
+sha512sums="
+3020d97764d8bcd530d7cee1822b7fa4132ce8a4abe70fd9ae41b03ea5f09721ed50e9ca66eeca8ba6d57eb56aed3ff4c6d5dffe0c3e01fd74a8b9ba32021f5f  config.yml
+"

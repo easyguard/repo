@@ -1,0 +1,10 @@
+#!/sbin/openrc-run
+name="ezgapi"
+description="EasyGuard API"
+command="ezg-api"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+	need net
+}

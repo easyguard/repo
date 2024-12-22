@@ -1,0 +1,10 @@
+#!/sbin/openrc-run
+name="limes"
+description="Limes Firewall"
+command="limes"
+command_args="apply"
+
+depend() {
+	need nftables
+	after nftables
+}

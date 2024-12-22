@@ -1,0 +1,11 @@
+#!/sbin/openrc-run
+name="netd"
+description="Network Daemon"
+command="netd"
+command_args="run"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+	provide net
+}

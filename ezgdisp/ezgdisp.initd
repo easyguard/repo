@@ -1,0 +1,7 @@
+#!/sbin/openrc-run
+name="ezgdisp"
+description="EasyGuard Display Application"
+command="npm"
+command_args="start --prefix /etc/ezgdisp"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"

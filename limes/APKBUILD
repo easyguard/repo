@@ -1,0 +1,44 @@
+# Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+# Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+pkgname=limes
+pkgver=0.1.1
+pkgrel=1
+pkgdesc="A simple firewall"
+url="https://github.com/easyguard/limes"
+arch="all"
+license="GPL-3.0-only"
+depends="nftables"
+makedepends="cargo cargo-auditable"
+checkdepends=""
+source="https://github.com/easyguard/limes/archive/refs/heads/main.zip
+	limes.initd
+	firewall.json"
+builddir="$srcdir/limes-main"
+
+prepare() {
+	default_prepare
+
+	cargo fetch --target="$CTARGET" --locked
+}
+
+build() {
+	cargo auditable build --frozen --release
+}
+
+check() {
+	# cargo test --frozen
+	:
+}
+
+package() {
+	# Replace with proper package command(s)
+	install -Dm755 "$builddir/target/release/limes" "$pkgdir/usr/bin/limes"
+	install -Dm755 "$srcdir/limes.initd" "$pkgdir/etc/init.d/limes"
+	install -Dm755 "$srcdir/firewall.json" "$pkgdir/etc/config/firewall.json"
+}
+
+sha512sums="
+8c94df48e70aed2a1df38d6cafaf11bc80e9e86b773cb501c331a2eb03e14e9e5f1ec3dff874d02a033fb27590ee9757c235095600368d6922358149849236d6  main.zip
+c6640215fd13081469468c33d42d6451d5125c7b5c0cde24839f5642aa1b773008a77275b3726e007122e615271c3fa61654a4840d49a7e5dbcdcb4e42043047  limes.initd
+e2847944cd5f0499670b988b9f742f2b6eb4ff78aa0e91b3af8eba2985f592fa671a1d748b9ac66804df49b954a90cb9ee3e2b003e48568e5ba6c41693a2ea82  firewall.json
+"

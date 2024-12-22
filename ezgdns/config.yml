@@ -1,0 +1,25 @@
+upstream:
+  default:
+    - https://dns.digitale-gesellschaft.ch/dns-query
+blocking:
+  blackLists:
+    general:
+      - https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/multi.txt
+    security:
+      - https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/tif.txt
+      - https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/hoster.txt
+      - https://raw.githubusercontent.com/xRuffKez/NRD/main/nrd-14day_wildcard.txt
+    child:
+      - https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/gambling.txt
+      - https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/nosafesearch.txt
+      - https://nsfw.oisd.nl/domainswild
+  clientGroupsBlock:
+    default:
+      - general
+      - security
+ports:
+  dns: 53
+customDNS:
+  customTTL: 1h
+  mapping:
+    easyguard.box: 10.10.99.1

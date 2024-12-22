@@ -1,0 +1,5 @@
+# When doing mistakes this file can be created
+packages/APKINDEX.tar.gz
+
+# Private key
+keys/key.rsa

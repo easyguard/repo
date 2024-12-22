@@ -1,0 +1,42 @@
+# Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+# Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+pkgname=ezgdisp
+pkgver=0.1.0
+pkgrel=0
+pkgdesc="EasyGuard S1 Display"
+url="https://github.com/easyguard/ezgdisp"
+arch="all"
+license="GPL-3.0-only"
+depends="nodejs npm python3 pixman-dev cairo-dev pango-dev"
+makedepends=""
+checkdepends=""
+source="https://github.com/easyguard/ezgdisp/archive/refs/heads/main.zip
+	ezgdisp.initd"
+builddir="$srcdir/ezgdisp-main"
+
+prepare() {
+	default_prepare
+
+	npm ci
+}
+
+build() {
+	# This is a interpreted language, so nothing to build
+	:
+}
+
+check() {
+	:
+}
+
+package() {
+	# Replace with proper package command(s)
+	find "$builddir" -type f -exec install -Dm 755 "{}" "$pkgdir/etc/ezgdisp" \;
+	# install -Dm755 "$builddir" "$pkgdir/etc/ezgdisp"
+	install -Dm755 "$srcdir/ezgdisp.initd" "$pkgdir/etc/init.d/ezgdisp"
+}
+
+sha512sums="
+0680d2e8cb0adc9a62ba7c83f5cb0152e2c81853d9f06242fb7e8fae46fef231877ea5d448f996b2f1abca80b93ab8190a2399db1baf8ee5f155090b41c8afb9  main.zip
+4ac7ac91272ed0cd1089002a23abb081fde9113cf735cefbc565490f3cd3f3ef70deb1bffea81ee90c165c2352af9e6d29e754fae519f213046b3155397a3cda  ezgdisp.initd
+"

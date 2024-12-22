@@ -1,0 +1,44 @@
+# Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+# Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+pkgname=netd
+pkgver=0.2.0
+pkgrel=0
+pkgdesc="Network Daemon"
+url="https://github.com/easyguard/netd"
+arch="all"
+license="GPL-3.0-only"
+depends="iproute2 busybox-extras"
+makedepends="cargo cargo-auditable"
+checkdepends=""
+source="https://github.com/easyguard/netd/archive/refs/heads/main.zip
+	netd.initd
+	network.toml"
+builddir="$srcdir/netd-main"
+
+prepare() {
+	default_prepare
+
+	cargo fetch --target="$CTARGET" --locked
+}
+
+build() {
+	cargo auditable build --frozen --release
+}
+
+check() {
+	# cargo test --frozen
+	:
+}
+
+package() {
+	# Replace with proper package command(s)
+	install -Dm755 "$builddir/target/release/netd" "$pkgdir/usr/bin/netd"
+	install -Dm755 "$srcdir/netd.initd" "$pkgdir/etc/init.d/netd"
+	install -Dm755 "$srcdir/network.toml" "$pkgdir/etc/config/network.toml"
+}
+
+sha512sums="
+2a305fbc8a7458739fe51b7e1beef8db566bb862c15a9e0a9ea8c4a0a0384aa4a21a84496ec94d32f0cc97645b7435d25ce0227b2d5198054232afbaa125925a  main.zip
+de0b73d96bc2aea2f1c63d5834921029feae1121a1e35120663db3f5e5106fba55f549a3c949a62a2c2d62b343fa3b21909a3b22fa5c82512f8b53f62ec903a3  netd.initd
+bf9061e181ea75991e3523df7ec59cb9746e0b6700a2b3d468b863f192c6ec66e8005348840f8c6bd544774af489fddc92e487cad01f91bcc1ec62c63870e830  network.toml
+"

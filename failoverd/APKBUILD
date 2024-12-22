@@ -1,0 +1,41 @@
+# Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+# Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+pkgname=failoverd
+pkgver=0.1.0
+pkgrel=0
+pkgdesc="Network Router Failover Daemon"
+url="https://github.com/easyguard/failoverd"
+arch="all"
+license="GPL-3.0-only"
+depends=""
+makedepends="cargo cargo-auditable"
+checkdepends=""
+source="https://github.com/easyguard/failoverd/archive/refs/heads/main.zip
+	failoverd.initd"
+builddir="$srcdir/failoverd-main"
+
+prepare() {
+	default_prepare
+
+	cargo fetch --target="$CTARGET" --locked
+}
+
+build() {
+	cargo auditable build --frozen --release
+}
+
+check() {
+	# cargo test --frozen
+	:
+}
+
+package() {
+	# Replace with proper package command(s)
+	install -Dm755 "$builddir/target/release/failoverd" "$pkgdir/usr/bin/failoverd"
+	install -Dm755 "$srcdir/failoverd.initd" "$pkgdir/etc/init.d/failoverd"
+}
+
+sha512sums="
+ad65cb78c1439fc0a1e229357f218a7e9b159c6026c7c2b6985ba2ba8919af37a0ce10c5a4b1286830f788c59a04af3ab77c30c973053212833e7ac82fb058b0  main.zip
+2f03125de54c47f356304720bc97f76fa97f7aed94b71043e57f25286c89c2708b1d65d872dc543b8a531c4969328cf6b34f51f31d9ec2f8d277f063e802f895  failoverd.initd
+"
