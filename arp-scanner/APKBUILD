@@ -1,0 +1,40 @@
+# Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+# Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+pkgname=arp-scanner
+pkgver=0.1.0
+pkgrel=0
+pkgdesc="ARP scanner"
+url="https://github.com/easyguard/arp-scan-rs"
+arch="all"
+license="GPL-3.0-only"
+depends=""
+makedepends="cargo cargo-auditable"
+checkdepends=""
+source="https://github.com/easyguard/arp-scan-rs/archive/refs/heads/master.zip http://standards-oui.ieee.org/oui/oui.csv"
+builddir="$srcdir/arp-scan-rs-master"
+
+prepare() {
+	default_prepare
+
+	cargo fetch --target="$CTARGET" --locked
+}
+
+build() {
+	cargo auditable build --frozen --release
+}
+
+check() {
+	# cargo test --frozen
+	:
+}
+
+package() {
+	# Replace with proper package command(s)
+	install -Dm755 "$builddir/target/release/arp-scan" "$pkgdir/usr/bin/arp-scan"
+	install -Dm755 "$srcdir/oui.csv" "$pkgdir/usr/share/arp-scan/ieee-oui.csv"
+}
+
+sha512sums="
+ddda5312fb155d6768e8daa63c000fbea9ed254f6c03f673ede8360ea0e481a55700ed99a0e9e25866d1e4e374e5af582cd6e3eefbb519d363f0aee163cab177  master.zip
+fa776dacd1641d37c81c46ff58ef44dec83c420809513d36a3c9d636f2c267bf59001ef541f663dfd8d699a45cdbf9befec2805548b97b2e43d4f61e0147dac9  oui.csv
+"
