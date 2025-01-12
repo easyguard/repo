@@ -1,7 +1,7 @@
 # Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 # Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 pkgname=ezgapi
-pkgver=0.3.0
+pkgver=0.4.0
 pkgrel=0
 pkgdesc="EasyGuard HTTP API"
 url="https://github.com/easyguard/ezg-api"
@@ -35,6 +35,6 @@ package() {
 }
 
 sha512sums="
-f8f86033a516d287bd77cd5e93c44b3c70c2ac3c4abe90d6ed831dc556164f27d74da420b71fd8f70e9fa6f91e5ff31bb51a12ac844a12dde48f4ae79017e223  main.zip
+388b76060aab15b17eaa41bc411f52fbecb1329fdd474e4dcdd8cda4bd6ee4515e555faa42d7300cf1463d01cc28c5a8d5d0ab37d948e2ab05e8e066dd9809be  main.zip
 4b860839b54461768eeb28712ebca269fab937ed639facdd5ae6d443ab7aa23e7a97c4cc4aa986f4de157d8be0ae7cc6057635781cbb380899f8aa2f9d2e3421  ezgapi.initd
 "
