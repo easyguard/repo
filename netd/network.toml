@@ -4,10 +4,12 @@ eth1 = "lan"
 
 [interfaces.wan]
 # The WAN interface
+type = "ethernet"
 mode = "dhcp"
 
 [interfaces.lan]
 # The LAN interface
+type = "ethernet"
 mode = "static"
 address = "10.10.99.1"
 netmask = 24
