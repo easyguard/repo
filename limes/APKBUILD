@@ -1,7 +1,7 @@
 # Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 # Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 pkgname=limes
-pkgver=0.3.0
+pkgver=0.4.0
 pkgrel=0
 pkgdesc="A simple firewall"
 url="https://github.com/easyguard/limes"
@@ -38,7 +38,7 @@ package() {
 }
 
 sha512sums="
-704718d67ae19946a47db4cda9fbe1585dcca8842395284e9aa8107135983ee1f2ab89e35020290666da911f6bccef56d1fedda5d0a4727e3badfc25a06d5e73  main.zip
+80829ffaddd3d59d5aebbcfecbb6eb7b6efea8736e14cd319ad8db173f8f1c29dfbd4aaab4e73e798b4512f98b75a34771d397eeafa6bedc7cdfb9e908f0ef13  main.zip
 c6640215fd13081469468c33d42d6451d5125c7b5c0cde24839f5642aa1b773008a77275b3726e007122e615271c3fa61654a4840d49a7e5dbcdcb4e42043047  limes.initd
 e2847944cd5f0499670b988b9f742f2b6eb4ff78aa0e91b3af8eba2985f592fa671a1d748b9ac66804df49b954a90cb9ee3e2b003e48568e5ba6c41693a2ea82  firewall.json
 "
