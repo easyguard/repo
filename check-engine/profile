@@ -1,0 +1,6 @@
+if [ -f /tmp/check_engine ]; then
+	echo ""
+	echo -e "\033[1;5;31;107m Check Engine! \033[0m"
+	cat /tmp/check_engine
+	echo ""
+fi

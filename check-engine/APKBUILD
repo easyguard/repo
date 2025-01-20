@@ -1,0 +1,43 @@
+# Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+# Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+pkgname=check-engine
+pkgver=0.1.0
+pkgrel=0
+pkgdesc="EasyGuard System Watcher"
+url="https://github.com/easyguard/check-engine"
+arch="all"
+license="GPL-3.0-only"
+depends=""
+makedepends="cargo cargo-auditable"
+checkdepends=""
+source="https://github.com/easyguard/check-engine/archive/refs/heads/main.zip
+	check-engine.initd
+	profile"
+builddir="$srcdir/check-engine-main"
+
+prepare() {
+	default_prepare
+
+	cargo fetch --target="$CTARGET" --locked
+}
+
+build() {
+	cargo auditable build --frozen --release
+}
+
+check() {
+	# cargo test --frozen
+	:
+}
+
+package() {
+	install -Dm755 "$builddir/target/release/check-engine" "$pkgdir/usr/bin/check-engine"
+	install -Dm755 "$srcdir/check-engine.initd" "$pkgdir/etc/init.d/check-engine"
+	install -Dm755 "$srcdir/profile" "$pkgdir/root/.profile"
+}
+
+sha512sums="
+f1198df2024e9ef6d2d2379ca66f833ea5fa544f4506c8950af02df1a1ddc479ce4b797b769c6c5245fd5c389a5737ebe26e647ca0de2df4efbf0beaa64ad7d5  main.zip
+443712b2f1ad83130fdeb025f224336a90c9be9a3e9e2ec953501efba6a37cfcbcb1f06646955148ca7070de4d142fa43b3d3aae6182f1cc76e790111bc45c29  check-engine.initd
+fa8b957538e05328e714ea03920b1e7f338b1ee3849a2b36e3d0ea961599b84117cbc87b3424cc1ead671994a6db87d2c717ac3eae1543cebc4f9e4c7e66e482  profile
+"

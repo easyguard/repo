@@ -1,0 +1,7 @@
+#!/sbin/openrc-run
+name="check-engine"
+description="EasyGuard System Watcher"
+command="check-engine"
+command_args="-l"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"
