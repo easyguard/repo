@@ -1,0 +1,10 @@
+#!/bin/sh
+# If /etc/lighttpd/cert.pem exists, skip this file
+if [ -f /etc/lighttpd/cert.pem ]; then
+	exit 0
+fi
+
+mkdir -p /etc/lighttpd
+cd /etc/lighttpd
+# Generate a self-signed certificate
+openssl req -new -x509 -keyout cert.pem -out cert.pem -days 36525 -nodes -subj "/O=EasyGuard/OU=EasyGuard/CN=EasyGuard"
