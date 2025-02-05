@@ -2,20 +2,19 @@
 # Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 pkgname=ezgweb
 pkgver=0.2.0
-pkgrel=3
+pkgrel=4
 pkgdesc="EasyGuard Admin page"
-url="https://github.com/easyguard/easyguard-web"
+url="https://github.com/easyguard/webif"
 arch="all"
 license="GPL-3.0-only"
 install="ezgweb.pre-install"
 depends="lighttpd lighttpd-mod_auth ezgapi"
 makedepends="nodejs npm"
 checkdepends=""
-source="https://github.com/easyguard/easyguard-web/archive/refs/heads/main.zip
+source="https://github.com/easyguard/webif/archive/refs/heads/main.zip
 	lighttpd.conf
-	lighttpd-htdigest.user
-	ezgweb.pre-install" # root:easyguard
-builddir="$srcdir/easyguard-web-main"
+	ezgweb.pre-install"
+builddir="$srcdir/webif-main"
 
 prepare() {
 	default_prepare
@@ -36,12 +35,10 @@ package() {
 	find "." -type f -exec install -Dm 755 "{}" "$pkgdir/etc/easyguard-web/{}" \;
 	# install -Dm755 "$builddir/build" "$pkgdir/etc/easyguard-web"
 	# install -Dm755 "$srcdir/lighttpd.conf" "$pkgdir/etc/lighttpd/lighttpd.conf"
-	install -Dm755 "$srcdir/lighttpd-htdigest.user" "$pkgdir/etc/lighttpd/lighttpd-htdigest.user"
 }
 
 sha512sums="
-fe42e0679bf3d2050926add3578df59f8215afd3c8ea0c9ec0706ea566f6616c0c3d4e6d08d50c153d138cc48996661db6b05100b1113d9310cf5d0e9e7971bd  main.zip
+2db8a84dee27c81773c536dd82667a0eede167244d7404b302b5e784fbb6aab42ef489d71fbcb987a6378e809fe383ee6aa7e4dee6181ed387bcb0a0ffebaf66  main.zip
 e09460934d17b50738f87c3e105d57c530528d235b9be1fca0d90a83307879f43be1ead5b7424092f9868f9586cf8d83587779d0ed592a0e555dde895d8612ee  lighttpd.conf
-38ba6ee02327bb98bf0653d8f929cb568e1d03fea25e2f5e60557b6daa25154bcda635fa83beb8be099858d43c712214e7e65f736a1eecd43b0a98c2d699959d  lighttpd-htdigest.user
 d8698f77b7ed4cd9c22b40d46c8eea5cb9a9b888425a0f20bff2b4d3bb9e3c1ef11bf9803e92c199cbc62e06e3fdcea9d5a3c40d662aafec45b0f97a560e0f28  ezgweb.pre-install
 "
