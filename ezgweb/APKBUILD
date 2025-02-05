@@ -2,7 +2,7 @@
 # Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 pkgname=ezgweb
 pkgver=0.2.0
-pkgrel=2
+pkgrel=3
 pkgdesc="EasyGuard Admin page"
 url="https://github.com/easyguard/easyguard-web"
 arch="all"
@@ -32,7 +32,8 @@ check() {
 }
 
 package() {
-	find "$builddir/build" -type f -exec install -Dm 755 "{}" "$pkgdir/etc/easyguard-web/{}" \;
+	cd $builddir/build
+	find "." -type f -exec install -Dm 755 "{}" "$pkgdir/etc/easyguard-web/{}" \;
 	# install -Dm755 "$builddir/build" "$pkgdir/etc/easyguard-web"
 	# install -Dm755 "$srcdir/lighttpd.conf" "$pkgdir/etc/lighttpd/lighttpd.conf"
 	install -Dm755 "$srcdir/lighttpd-htdigest.user" "$pkgdir/etc/lighttpd/lighttpd-htdigest.user"
