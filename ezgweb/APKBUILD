@@ -2,7 +2,7 @@
 # Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 pkgname=ezgweb
 pkgver=0.3.0
-pkgrel=0
+pkgrel=1
 pkgdesc="EasyGuard Admin page"
 url="https://github.com/easyguard/webif"
 arch="all"
@@ -15,6 +15,7 @@ source="https://github.com/easyguard/webif/archive/refs/heads/main.zip
 	lighttpd.conf
 	ezgweb.pre-install"
 builddir="$srcdir/webif-main"
+replaces="lighttpd"
 
 prepare() {
 	default_prepare
