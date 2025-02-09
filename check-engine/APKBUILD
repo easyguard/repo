@@ -1,7 +1,7 @@
 # Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 # Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 pkgname=check-engine
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=0
 pkgdesc="EasyGuard System Watcher"
 url="https://github.com/easyguard/check-engine"
@@ -37,7 +37,7 @@ package() {
 }
 
 sha512sums="
-f1198df2024e9ef6d2d2379ca66f833ea5fa544f4506c8950af02df1a1ddc479ce4b797b769c6c5245fd5c389a5737ebe26e647ca0de2df4efbf0beaa64ad7d5  main.zip
-443712b2f1ad83130fdeb025f224336a90c9be9a3e9e2ec953501efba6a37cfcbcb1f06646955148ca7070de4d142fa43b3d3aae6182f1cc76e790111bc45c29  check-engine.initd
+df706cd083eb5813a2b51cd53d3ad2ca88e9fcc8aa0572457a3da4f3a9580bd1341820fede652591e979de41af8a3e3d94805bda6bb29a48ae8fb675e61d2c4e  main.zip
+1230e7b88b9ecf527b80bb4856f6893b22a1ff9a9ea003bad5901252d338bce88eec74bf80494ccfc0a27f7cbfc4c8b81d22b90c6618018cd030c7363920ae6a  check-engine.initd
 fa8b957538e05328e714ea03920b1e7f338b1ee3849a2b36e3d0ea961599b84117cbc87b3424cc1ead671994a6db87d2c717ac3eae1543cebc4f9e4c7e66e482  profile
 "
