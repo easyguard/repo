@@ -1,0 +1,35 @@
+# Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+# Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
+pkgname=ezg-checks
+pkgver=0.1.0
+pkgrel=0
+pkgdesc="Check Engine checks for EasyGuard"
+url="https://github.com/easyguard/ezg-checks"
+arch="all"
+license="GPL-3.0-only"
+depends="bind-tools"
+makedepends=""
+checkdepends=""
+source="https://github.com/easyguard/ezg-checks/archive/refs/heads/main.zip"
+builddir="$srcdir/ezg-checks-main"
+
+prepare() {
+	default_prepare
+}
+
+build() {
+	:
+}
+
+check() {
+	:
+}
+
+package() {
+	cd $builddir
+	find "." -type f -exec install -Dm 755 "{}" "$pkgdir/etc/config/checks/ezg-checks/{}" \;
+}
+
+sha512sums="
+542faa8b338b163b29939e15703702db182562d31f092327a3f828cf0ea2077c7a85fd41e1f48973a1fac80ccc3fe5cfd98ec0ad967b378a1b00843092bce0ee  main.zip
+"
