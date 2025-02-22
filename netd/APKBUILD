@@ -1,7 +1,7 @@
 # Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 # Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 pkgname=netd
-pkgver=0.5.1
+pkgver=0.5.2
 pkgrel=0
 pkgdesc="Network Daemon"
 url="https://github.com/easyguard/netd"
@@ -38,7 +38,7 @@ package() {
 }
 
 sha512sums="
-c237777ace7b6fe482a317754bb831dca8003a102b83627d3eb6f1d08eb4e323065980ccc5666add52a3ad2cbd6cadecb43e11c0d83d612253cbe6a7fc36e06e  main.zip
+67b6a024aff8fc201b041663170fe3d841ae2368e67cf209aee58110d54bb2badb28a49748d36bfd0a52c2f4c88c8ae33fdc1b554273590391589115b5a24524  main.zip
 de0b73d96bc2aea2f1c63d5834921029feae1121a1e35120663db3f5e5106fba55f549a3c949a62a2c2d62b343fa3b21909a3b22fa5c82512f8b53f62ec903a3  netd.initd
 fae37322903ba39453befb089580c9747ccdb439688c06e93481249d18467982dc3d44c979060461c0f48af11226872397b09e4eb6fbf127d1d7c40fd0e93394  network.toml
 "
