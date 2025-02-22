@@ -1,7 +1,7 @@
 # Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 # Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 pkgname=ezgweb
-pkgver=0.3.0
+pkgver=0.4.0
 pkgrel=1
 pkgdesc="EasyGuard Admin page"
 url="https://github.com/easyguard/webif"
@@ -39,7 +39,7 @@ package() {
 }
 
 sha512sums="
-6354ed1b8a3a29121c38d9336528aba23999f9ee788f3206ea2a874271c4bca03dc74bb3f2841b87b90403e3dc35a47afebc370482ef0480c9a554584d93bfba  main.zip
+8b58b37aed7ffebabea180da313e2c45312d27babdf92c52619c48bb24915dadb90ea06dc5fc7b22332e1eaa7038a9a025eae7a009ad88c743716db0023b8853  main.zip
 e09460934d17b50738f87c3e105d57c530528d235b9be1fca0d90a83307879f43be1ead5b7424092f9868f9586cf8d83587779d0ed592a0e555dde895d8612ee  lighttpd.conf
 d8698f77b7ed4cd9c22b40d46c8eea5cb9a9b888425a0f20bff2b4d3bb9e3c1ef11bf9803e92c199cbc62e06e3fdcea9d5a3c40d662aafec45b0f97a560e0f28  ezgweb.pre-install
 "
