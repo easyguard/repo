@@ -1,7 +1,7 @@
 # Contributor: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 # Maintainer: Jannik Eckhardt <jannik.eckhardt2009@gmail.com>
 pkgname=ezgdisp
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=0
 pkgdesc="EasyGuard S1 Display"
 url="https://github.com/easyguard/ezgdisp"
@@ -39,6 +39,6 @@ package() {
 }
 
 sha512sums="
-1bd749117fda6c06ae1dc0eb29ad7ec2178e99fad93cc95e7738661ee1dc51d7ca1db19bdeeadf56804a69db6c8e540c813297c0e884255abef892738f44cf09  main.zip
+a564e522ddd4b12a6a8721e60279806250f68760ae05941b520f232c2023ef2206d06fc1482349e824e67026d9f3fa52ceb9a3b03e41d6dc1f9eb53ae3c1af27  main.zip
 4ac7ac91272ed0cd1089002a23abb081fde9113cf735cefbc565490f3cd3f3ef70deb1bffea81ee90c165c2352af9e6d29e754fae519f213046b3155397a3cda  ezgdisp.initd
 "
